@@ -1,0 +1,141 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body,
+html {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+
+/* ---------------------PHAN CHUNG ------------------------ */
+
+
+/* ---------------------HEADER ------------------------ */
+
+#header {
+    background-color: #333;
+}
+
+
+/* ---------------------BODY ------------------------ */
+
+
+/* ---------------------FOOTER ------------------------ */
+
+#footer {
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#footer {
+    /* background-color: #333; */
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+/* .introduce__imge {
+    background-image: url('../static/asset/images/logo.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 90px;
+    height: 10vh;
+    border-radius: 50%;
+} */
+
+h3 {
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 2px;
+}
+
+
+/* h3:hover {
+    border-bottom: 2px solid black;
+} */
+
+table {
+    display: flex;
+    justify-content: left;
+    margin-left: 10%;
+}
+
+table tr {
+    margin-left: 20px;
+}
+
+table th {
+    text-align: left;
+}
+
+@keyframes blink {
+    0% {
+        color: violet;
+    }
+    14.3% {
+        color: indigo;
+    }
+    28.6% {
+        color: blue;
+    }
+    42.9% {
+        color: green;
+    }
+    57.2% {
+        color: yellow;
+    }
+    71.5% {
+        color: orange;
+    }
+    85.8% {
+        color: red;
+    }
+    100% {
+        color: violet;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        color: violet;
+    }
+    14.3% {
+        color: indigo;
+    }
+    28.6% {
+        color: blue;
+    }
+    42.9% {
+        color: green;
+    }
+    57.2% {
+        color: yellow;
+    }
+    71.5% {
+        color: orange;
+    }
+    85.8% {
+        color: red;
+    }
+    100% {
+        color: violet;
+    }
+}
+
+marquee {
+    font-size: 1.5rem;
+    color: #fff;
+    animation: blink 20s linear infinite;
+    -webkit-animation: blink 20s linear infinite;
+}
