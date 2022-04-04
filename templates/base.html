@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        html,
+        body {
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        
+        #header {
+            background-color: #333;
+            color: white;
+            min-height: 13vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+        
+        .active {
+            border-bottom: 2px solid white;
+        }
+        
+        .list_menu {
+            float: left;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        li {
+            margin-left: 20px;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        li a {
+            text-transform: uppercase;
+            text-decoration: none;
+            color: white;
+        }
+        /* li a:hover {
+            color: #ccc;
+            border-bottom: 2px solid white;
+            cursor: pointer;
+        } */
+        
+        .list_search {
+            float: right;
+            margin-top: 30px;
+            margin-left: 750px;
+            text-align: center;
+        }
+        
+        input {
+            margin-right: 20px;
+            width: 300px;
+            min-height: 25px;
+            outline: 0;
+            border: 0px;
+            border-radius: 5px;
+        }
+        
+        input:hover {
+            color: rgb(66, 65, 65, 0.6);
+        }
+        
+        .btn-n {
+            border: 1px solid white;
+            padding: 5px 10px;
+            text-decoration: none;
+            transition: all .3s;
+            border-radius: 5px;
+            color: white;
+            background-color: transparent;
+        }
+        
+        .btn-n:hover {
+            border-radius: 5px;
+            background-color: rgba(252, 250, 250, 0.8);
+        }
+        
+        .container {
+            margin: 130px 0px 0px;
+            margin-left: 10%;
+        }
+        
+        .content_list {
+            width: 250px;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .tab_content {
+            background-color: rgb(112, 110, 110, 0.9);
+            width: 100%;
+            min-height: 8vh;
+            margin-bottom: 3px;
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        h3 {
+            color: white;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .content_list ul {
+            width: 200px;
+            border: 1px solid rgb(114, 113, 113, 0.9);
+            margin: 0px 20px;
+            border-top-right-radius: 10%;
+            border-bottom-left-radius: 10%;
+        }
+        
+        .content_list li {
+            margin-top: 15px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgb(114, 113, 113, 0.9);
+        }
+        
+        .content_list li a:hover {
+            cursor: pointer;
+            color: rgb(114, 113, 113, 0.9);
+            background-color: rgb(114, 113, 113, 0.9);
+        }
+        
+        .content_body {
+            display: inline-flex;
+            flex-wrap: wrap;
+            border: 1px solid rgb(112, 110, 110, 0.9);
+            width: 24%;
+            min-height: 45vh;
+            border-color: #333;
+            margin-left: 10px;
+            margin-top: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            text-decoration: none;
+        }
+        
+        .proflie_image {
+            width: 100%;
+            overflow: hidden;
+            height: 20vh;
+            background: url('') no-repeat;
+            background-size: cover;
+            background-clip: border-box;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        
+        .profile_name {
+            color: #333;
+            font-size: 16px;
+            width: 100%;
+            font-weight: 400;
+            text-align: center;
+            margin-top: 5px;
+            margin-left: 2px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .proffile_gr {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .profile_item {
+            margin: 2px;
+            padding: 0px;
+            display: flex;
+            flex-grow: 1;
+            text-align: left;
+        }
+        
+        .body_main {
+            background: url('https://media.foody.vn/res/g27/267740/prof/s/foody-mobile-t1-jpg-954-636077170824611256.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+        
+        .name_school {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        
+        .item__cart {
+            display: inline-flex;
+            flex-wrap: wrap;
+            height: 30vh;
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-top: 10px;
+        }
+        
+        .btn-edit,
+        .btn-delete {
+            border: 1px solid black;
+            margin-left: 5px;
+            text-decoration: none;
+            width: 70px;
+            min-height: 10px;
+            border-radius: 5px;
+            text-align: center;
+            color: white;
+        }
+        
+        .btn-edit {
+            background-color: #2ecc71;
+        }
+        
+        .btn-delete {
+            background-color: #d63031;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <div class="nav">
+            <div class="list_menu">
+                <ul>
+                    <li>
+                        <a href="{% url 'manage'%}" class="{% if nav == 'mana'%}active{% endif%}">Manage</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'logout'%}" class="{% if nav == 'logout'%}active{% endif%}">Logout {{user}}</a></li>
+                    {% else%}
+                    <li>
+                        <a href="{% url 'login'%}" class="{% if nav == 'login'%}active{% endif%}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="list_search">
+                <form class="d-flex" action="{% url 'search'%}" method="POST">
+                    {% csrf_token %}
+                    <input type="search" name="search" placeholder="Search student" aria-label="Search">
+                    <button class="btn-n" type="submit">Search</button>
+                </form>
+                <div class="name__card">
+                    <p class="p-card"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        {% if messages %} {% for message in messages%}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {%endfor%} {%endif%} {% block content %} {% endblock content %}
+    </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+{% extends "mana.html" %} {% block title%} Danh sách {% endblock%} {%block mana_list%}
+<style>
+    th {
+        color: black;
+    }
+    
+    .th-text {
+        text-transform: capitalize;
+        font-weight: 400;
+    }
+</style>
+
+
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            <!-- <th scope="col">STT</th> -->
+            <th scope="col">Ảnh đại diện</th>
+            <th scope="col">Họ và tên</th>
+            <th scope="col">Mã Số sinh Viên</th>
+            <th scope="col">Nghành</th>
+            <th scope="col">Trường</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Thông tin thêm</th>
+        </tr>
+    </thead>
+    {% for item in profile %}
+    <tbody>
+        <tr>
+
+
+            <th class="th-text"><img src="{{item.course.url}}" alt="" style="width: 80px;height: 80px;"></th>
+            <!-- <th class="th-text">{{item.course}}</th> -->
+            <th class="th-text">{{item.full_name}}</th>
+            <th class="th-text">{{item.student_id}}</th>
+            <th class="th-text">{{item.majors}}</th>
+            <th class="th-text">{{item.school_id.name_school}}</th>
+            <th class="th-text">{{item.status}}</th>
+            <th class="th-text">
+                <a href="{% url 'show' item.id%}" class="btn-edit" type="submit">Chi Tiết</a>
+                <a href="{% url 'update' item.id%}" class="btn-edit" type="submit">Sửa</a>
+                <a href="{% url 'delete' item.id%}" class="btn-delete" type="submit">Xóa</a>
+            </th>
+        </tr>
+    </tbody>
+    {%endfor%}
+
+
+</table>
+
+{%endblock%}

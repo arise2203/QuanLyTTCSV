@@ -1,0 +1,159 @@
+{% extends "base.html" %} {% block title%} Quản lý {% endblock%} {%block content%}
+<style>
+    a:hover {
+        background-color: azure;
+        color: brown;
+    }
+    
+    .car {
+        border: 1px solid rgb(151, 139, 139);
+        min-height: 10vh;
+    }
+    
+    .h2-car {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 14px;
+        text-align: center;
+        border-bottom: 2px solid rgb(95, 92, 92);
+        background-color: #3498db;
+        min-height: 5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .p-car {
+        font-size: 25px;
+        color: black;
+        font-weight: 700;
+        text-align: center;
+    }
+    
+    .fiter-list {}
+    
+    .fiter-list>li {
+        width: 200px;
+        min-height: 3vh;
+        overflow: hidden;
+    }
+    
+    .fiter-item {
+        color: rgb(255, 255, 255);
+        border: 1px solid black;
+        font-size: 14px;
+        text-transform: uppercase;
+        overflow: hidden;
+    }
+    
+    li:hover .fiter-item {
+        border-radius: 10px;
+    }
+    
+    th {
+        color: black;
+    }
+    
+    .th-text {
+        text-transform: capitalize;
+        font-weight: 400;
+    }
+    
+    .total-list {
+        display: inline-block;
+    }
+    
+    .shool-total {
+        border: 1px solid rgb(95, 92, 92, 0.5);
+        width: 20vh;
+        min-height: 10vh;
+        display: inline-block;
+        margin-bottom: 20px;
+        margin-left: 40px;
+        border-radius: 5px;
+    }
+    
+    h2 {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: #070707;
+        text-align: center;
+        border-bottom: 1px solid rgb(95, 92, 92, 0.5);
+        padding: 5px;
+        text-align: center;
+        background-color: #4a69bd;
+        color: aliceblue;
+        font-weight: 500;
+        min-height: 3vh;
+    }
+    
+    .count {
+        width: 100%;
+        height: 100%;
+    }
+    
+    p {
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-3">
+        <ul style="display: flex; flex-wrap: wrap;list-style: none;">
+            <li style=""><a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'listprofile'%}">bạn đã dăng kí</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'list_school'%}">Trường</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'account'%}">Tài khoản</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="#">Nhận diện</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+        <div class="total-list">
+            <div class="shool-total">
+                <h2>Trường</h2>
+                <div class="count">
+                    <p>{{school_count}}</p>
+                </div>
+
+            </div>
+            <div class="shool-total">
+                <h2>Hồ sơ</h2>
+                <div class="count">
+                    <p>{{profile_count}}</p>
+                </div>
+
+            </div>
+            <div class="shool-total">
+                <h2>User</h2>
+                <div class="count">
+                    <p>{{myuser_count}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="fiter-list">
+            <ul>
+                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'filter_gra'%}" class="btn accordion-body fiter-item">Đã tốt nghiệp</a></li>
+                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'filternotGra'%}" class="btn accordion-body fiter-item">Chưa tốt nghiệp</a></li>
+                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'addprofile'%}" class="btn accordion-body fiter-item">Thêm profile</a></li>
+                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'addUser'%}" class="btn accordion-body fiter-item">Thêm tài khoản</a></li>
+                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'identify'%}" class="btn accordion-body fiter-item">Nhận diện ảnh</a></li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    {%block mana_list%} {%endblock%}
+</div>
+</div>
+
+
+{% endblock %}

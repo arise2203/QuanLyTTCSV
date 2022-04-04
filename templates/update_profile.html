@@ -1,0 +1,44 @@
+{% extends './mana.html'%} {%block title%} {%endblock%}{%block mana_list%}
+<style>
+    .form-list {
+        border: 1px solid black;
+        width: 100vh;
+        margin-left: 30%;
+        padding: 50px;
+        border-radius: 5px;
+    }
+    
+    h3 {
+        color: #273c75;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 300;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10%;
+    }
+    
+    .submit-update {
+        width: 100%;
+        border: 1px solid wheat;
+        margin-top: 50px;
+        background-color: #273c75;
+        color: white;
+        text-transform: uppercase;
+        min-height: 5vh;
+    }
+    
+    .submit-update:hover {
+        background-color: #425ca2;
+        color: white;
+    }
+</style>
+<h3>{{update_data.full_name}}</h3>
+<form action="" class="form-list" method="post">
+
+    {%csrf_token%} {{form.as_table}}
+    <input type="submit" value="UpDate" class="submit-update">
+</form>
+
+{%endblock%}

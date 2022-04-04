@@ -1,0 +1,97 @@
+{% extends './mana.html'%} {%block mana_list%}
+<style>
+    table {
+        border: 1px solid rgba(0, 0, 0, 0.4);
+        width: 50vh;
+    }
+    
+    .intro {
+        display: inline-block;
+    }
+    
+    .fiter-item {
+        color: rgb(15, 15, 15);
+        border: 1px solid black;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 700;
+        width: 200px;
+        text-transform: uppercase;
+    }
+    
+    .ima {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: blue;
+    }
+</style>
+<div class="row">
+
+    <div class="intro">
+        <h3 style="font-size: 20px;text-align: center;text-transform: uppercase;color: #273c75;">{{profiles.full_name}}</h3>
+        <div class="ima">
+            <img src="{{profiles.course}}" alt="">
+        </div>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">MSSV</th>
+            <td>{{profiles.student_id}}</td>
+
+
+        </tr>
+        <tr>
+
+            <th scope="col">Họ và Tên</th>
+            <td>{{profiles.full_name}}</td>
+
+        </tr>
+        <tr>
+
+            <th scope="col">Ngày sinh</th>
+            <td>{{profiles.date_of_birth}}</td>
+
+        </tr>
+        <tr>
+
+            <th scope="col">Nghành</th>
+            <td>{{profiles.majors}}</td>
+
+        </tr>
+        <tr>
+
+            <th scope="col">Trường</th>
+            <td>{{profiles.school_id}}</td>
+
+        </tr>
+        <tr>
+
+            <th scope="col">Công việc</th>
+
+            <td>{{profiles.job_present}}</td>
+
+
+        </tr>
+        <tr>
+
+            <th scope="col">Công ty</th>
+            <td>{{profiles.company}}</td>
+
+        </tr>
+        <tr>
+            <th scope="col">Trang Thái</th>
+            <td>{{profiles.status}}</td>
+        </tr>
+        <tr>
+            <th scope="col"><a href="{%url 'listprofile'%}" class="btn accordion-body fiter-item">Quay lại</a></th>
+            <th scope="col"><a href="{%url 'list_school'%}" class="btn accordion-body fiter-item">Trường</a></th>
+        </tr>
+
+
+
+    </table>
+
+
+
+    {% endblock%}

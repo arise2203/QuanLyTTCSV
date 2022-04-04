@@ -1,0 +1,53 @@
+{% extends './mana.html'%} {%block mana_list%} {% load static %}
+<style>
+    .face-list {
+        border: 1px solid #2e3f6c;
+        width: 40vh;
+        border-radius: 10px;
+        margin-left: 40%;
+    }
+    
+    .face-list:hover {
+        background-color: rgb(207, 205, 205, 0.8);
+        cursor: pointer;
+    }
+    
+    .face-list img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: 8%;
+        margin-top: 5%;
+    }
+    
+    .btn-update {
+        width: 100%;
+        border: 1px solid black;
+        margin-top: 30px;
+        background-color: #273c75;
+        color: aliceblue;
+        min-height: 5vh;
+        text-transform: uppercase;
+        transition: all .3s linear;
+        margin-bottom: 20px;
+    }
+    
+    .btn-update:hover {
+        background-color: #2e3f6c;
+        border-radius: 20px;
+        color: white;
+        text-transform: uppercase;
+    }
+</style>
+<div class="face-list">
+    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAaTQbZI4bXOp9T3hpmLScoFgRC9xwUBJJa4QmE9fuB63vNizfMggKfnXj2xVqMgPrEwQ&usqp=CAU" alt=""></a>
+
+    <form class="forms-addprofile" action="" method="POST">
+        {%csrf_token%} {{form.as_table}}
+        <input style="margin-top:20px;" type="submit" value="Cập nhập" class="btn-update">
+    </form>
+</div>
+
+
+{%endblock%}

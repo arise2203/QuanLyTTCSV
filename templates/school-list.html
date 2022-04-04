@@ -1,0 +1,48 @@
+{% extends "base.html" %}{% block title%}Danh sach tên trường {% endblock%} {%block content%}
+<style>
+    .th-text {
+        text-transform: capitalize;
+        font-weight: 400;
+    }
+</style>
+<h2 class="name_school">Tên Trường</h2>
+<div class="row">
+    <div class="col-sm-3">
+        <ul style="display: flex; flex-wrap: wrap;list-style: none;">
+            <li style=""><a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'listprofile'%}">bạn đã dăng kí</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'list_school'%}">Trường</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'account'%}">Tài khoảng</a></li>
+            <li style="">
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="">Xêm thêm</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-9">
+
+
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+
+                    <th scope="col">Mã Trường</th>
+                    <th scope="col">Tên Trường</th>
+                    <th scope="col">Giới Thiệu</th>
+
+
+                </tr>
+            </thead>
+            {% for item in list_sclooldata%}
+            <tbody>
+                <tr>
+                    <th class="th-text">{{item.school_id}}</th>
+                    <th class="th-text">{{item.name_school}}</th>
+                    <th class="th-text">{{item.infor_school}}</th>
+                </tr>
+            </tbody>
+            {%endfor%}
+        </table>
+    </div>
+</div>
+
+{% endblock %}

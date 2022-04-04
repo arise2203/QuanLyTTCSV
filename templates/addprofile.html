@@ -1,0 +1,55 @@
+{% extends './mana.html'%} {%block title%}Them profile{%endblock%}{%block mana_list%}
+<style>
+    .forms-addprofile {
+        width: 90vh;
+        margin-left: 7%;
+        border: 1px solid black;
+        padding: 50px;
+        border-radius: 5px;
+    }
+    
+    .h3-addprofile {
+        color: #273c75;
+        font-weight: 500;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .btn-update {
+        width: 100%;
+        border: 1px solid black;
+        margin-top: 30px;
+        background-color: #273c75;
+        color: aliceblue;
+        min-height: 5vh;
+        text-transform: uppercase;
+        transition: all .3s linear;
+    }
+    
+    .btn-update:hover {
+        background-color: #2e3f6c;
+        border-radius: 20px;
+        color: white;
+        text-transform: uppercase;
+    }
+</style>
+<h3 class="h3-addprofile">Cá nhân</h3>
+<div class="row">
+    <div class="col-sm-3"></div>
+
+    <div class="col-sm-9">
+
+        {% if submitted %}
+        <div class="alert alert-primary" role="alert">
+            A simple primary alert—check it out!
+        </div>
+        {%else%}
+        <form class="forms-addprofile" action="" method="POST">
+            {%csrf_token%} {{form.as_table}}
+            <input type="submit" value="Cập Nhập" class="btn-update">
+        </form>
+    </div>
+</div>
+{%endif%} {%endblock%}

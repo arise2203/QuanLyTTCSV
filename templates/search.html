@@ -1,0 +1,113 @@
+ {% extends "base.html" %} {% block title%} Search {% endblock%} {%block content%}
+<style>
+    .main {
+        border: 1px solid black;
+        width: 55vh;
+        min-height: 50vh;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+        margin-left: 35%;
+    }
+    
+    .main:hover {
+        background-color: rgb(48, 45, 45, 0.2);
+        cursor: pointer;
+    }
+    
+    .h2-title {
+        text-transform: uppercase;
+        color: #273c75;
+        font-size: 24px;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .p-long {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        color: #273c75;
+        font-style: italic;
+    }
+    
+    th {
+        margin-top: 6px;
+    }
+    
+    .th-one {
+        font-weight: 400;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 5%;
+    }
+    
+    .btn {
+        border: 1px solid rgb(48, 45, 45, 0.2);
+        background-color: #273c75;
+        color: white;
+        width: 150px;
+        transition: all .3s;
+    }
+    
+    .btn:hover {
+        border-radius: 5px;
+        background-color: #2a3c6d;
+        color: aliceblue;
+    }
+</style>
+<div class="main">
+    {% if search %} {%for searchin in data %}
+    <div class="search_body">
+        <div class="introduce">
+            <h2 class="h2-title">{{ searchin.full_name}}</h2>
+
+            <p class="p-long">{{searchin.majors}}</p>
+        </div>
+        <div class="main-body">
+            <table>
+                <tr>
+                    <th>Tên bạn:</th>
+                    <th class="th-one">{{searchin.full_name}}</th>
+                    <th class="th-one"><img src="{{searchin.course.url}}" alt="" style="width: 100px;height: 100px;margin-right: 10px;"></th>
+                </tr>
+                <tr>
+                    <th>MSSV: </th>
+                    <th class="th-one">{{searchin.student_id}}</th>
+                </tr>
+                <tr>
+                    <th>Ngành:</th>
+                    <th class="th-one">{{searchin.majors}}</th>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <th class="th-one">{{searchin.email}}</th>
+                </tr>
+                <tr>
+                    <th>Công việc:</th>
+
+                    <th class="th-one">{{searchin.job_present}}</th>
+                </tr>
+                <tr>
+                    <th>Trạng thái:</th>
+                    <th class="th-one">{{searchin.status}}</th>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="submit-btn">
+            <a href="{%url 'show' searchin.id%}" class="btn">Xêm Thêm</a>
+            <a href="{% url 'addprofile'%" style="margin-left: 10px;" class="btn">Cập Nhập</a>
+
+        </div>
+        <div>
+            {%endfor%}{%endif%}
+
+        </div>
+        {% endblock %}
