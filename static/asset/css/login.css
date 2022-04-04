@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#warp {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url('./../images/nen.jpg'); */
+    background-size: cover;
+    background-repeat: value;
+}
+
+#form-login {
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.8);
+    flex-grow: 1;
+    padding: 12px 12px 24px 24px;
+    box-shadow: 0px 0px 20px 5px rgba(54, 56, 146, 0.8);
+}
+
+.form-group {
+    border-bottom: 1px solid white;
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.form-input {
+    margin-top: 10px;
+    font-size: 16px;
+    border: 0px;
+    outline: 0;
+    background: transparent;
+    flex-grow: 1;
+    color: blanchedalmond;
+    padding-left: 10px;
+}
+
+.form-input::placeholder {
+    color: blanchedalmond;
+}
+
+.form-group i {
+    color: white;
+    padding-left: 5px;
+    font-size: 16px;
+}
+
+#eye i {
+    cursor: pointer;
+}
+
+#eye {
+    display: inline-block;
+    top: 50%;
+    left: 47%;
+    transform: translate(250%, -20%);
+    padding-right: 30px;
+}
+
+.form-submit {
+    width: 80%;
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    height: 30px;
+    transition: .4s;
+    margin-left: 10%;
+}
+
+.form-submit:hover {
+    border-radius: 12px;
+    background: blanchedalmond;
+    color: black;
+    border: 1px solid black;
+}
+
+.form-account {
+    display: flex;
+    margin-top: 30px;
+    color: white;
+    margin-left: 10%;
+}
+
+.form-account span {
+    padding-left: 5px;
+}
+
+.form-account span a {
+    color: #1e3799;
+}
+
+.form-account span a:hover {
+    color: white;
+}
+
+.form-icon-login {
+    color: white;
+    margin-top: 30px;
+    top: 50%;
+    left: 47%;
+    transform: translate(30%, -40%);
+}
+
+.form-icon-login i {
+    border: 1px solid transparent;
+    width: 10%;
+    height: 10%;
+    padding-left: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    transition: .3s;
+    font-size: 20px;
+}
+
+.form-icon-login i:hover {
+    background: white;
+    border-radius: 12px;
+    color: black;
+}

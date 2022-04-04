@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!-- {% extends "base.html" %} {% block title %}Trang Chủ {% endblock title %} {% block content %}
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:60%; display: flex; justify-content: center; align-items: center;text-align: center;margin-left: 30%;">
     <div class="carousel-indicators">
@@ -167,4 +168,24 @@
 </div>
 
 
+=======
+{% extends "base.html" %} {% block content %}
+<div id="name__card">
+    <h2 class="name__title">Giới Thiệu </h2>
+    <div class="list__school">
+        {% for item in object_list %}
+        <div class="card" style="width: 18rem;">
+            <!--                <img src=".." class="card-img-top" alt="...">-->
+            <div class="card-body">
+                <h5 class="card-title">{{ item.TenTruong }} (<span>{{ item.MaTruong }})</span></h5>
+                <p class="card-text">{{ item.Gioithieu}}</p>
+                <a href="#" class="btn btn-primary">Xem thêm</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</div>
+>>>>>>> 58a9a7f88acb1880a89b35d5ce2ccd04ecaa1b37
 {% endblock %}

@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD:Alumstudent/settings.py
     'data',
+=======
+    'infor.apps.InforConfig',
+>>>>>>> 58a9a7f88acb1880a89b35d5ce2ccd04ecaa1b37:managestudent/settings.py
     
 ]
 
@@ -119,8 +123,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+<<<<<<< HEAD:Alumstudent/settings.py
 MEDIA_URL='media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+=======
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+MEDIA_URL='media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+
+>>>>>>> 58a9a7f88acb1880a89b35d5ce2ccd04ecaa1b37:managestudent/settings.py
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
