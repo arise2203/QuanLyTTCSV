@@ -1,4 +1,4 @@
-{% extends "mana.html" %} {% block title%} Search {% endblock%} {%block mana_list%}
+{% extends "mana.html" %} {% block title%} Tài khoản{% endblock%} {%block mana_list%}
 
 <table class="table table-success table-striped">
     <thead>
@@ -11,15 +11,15 @@
 
         </tr>
     </thead>
-    {%for item in myuser%}
+    {% for item in myuser %}
     <tbody>
         <tr>
             <th class="th-text">{{item.first_name}}</th>
             <th class="th-text">{{item.last_name}}</th>
             <th class="th-text">{{item.email}}</th>
             <th>
-                <a href="#" class="btn-edit" type="submit">Sửa</a>
-                <a href="#" class="btn-delete" type="submit">Xóa</a>
+                <a href="{% url 'editUser' item.id%}" class="btn-edit" type="submit">Sửa</a>
+                <a href="{% url 'deleteUser' item.id%}" class="btn-delete" type="submit">Xóa</a>
             </th>
         </tr>
     </tbody>

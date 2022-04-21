@@ -1,0 +1,59 @@
+{% extends "base.html" %}{% block title%}Load ảnh {% endblock%}{% load static %}
+<style>
+    .upload-file {
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+</style>{%block content%}
+<div class="upload-file" style="border: 1px solid black; width: 50%;min-height: 30vh;margin-left: 20%;">
+    <h2 id="lbl_status" style="color: rgb(200, 245, 200); background-color: rgb(21, 72, 21);text-align: center;min-height: 5vh;">Upload image to detect face</h2>
+    <div class="col-md-12">
+        <input id="inp" type='file' style="margin-left: 20px;">
+        <button id="btn_upload" class="btn btn-primary btn-default" style="margin-top: 20px;margin-left: 20px;"> Upload</button>
+
+    </div>
+    <div class="col-md-6">
+        <img id="img" height="300">
+    </div>
+    <div class="col-md-6">
+        <img id="img_result" height="300">
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        g_base64_string = ""
+        document.getElementById("inp").addEventListener("change", readFile);
+
+        function readFile() {
+            if (this.files && this.files[0]) {
+                var FR = new FileReader();
+
+                FR.addEventListener("load", function(e) {
+                    g_base64_string = e.target.result
+                    document.getElementById("img").src = g_base64_string
+                });
+
+                FR.readAsDataURL(this.files[0]);
+            }
+        }
+
+        $("#btn_upload").click(function() {
+            request_data = {
+                // "token": Cookies.get("token"),
+                "imageBase64": g_base64_string,
+                "isBase64": "True"
+            }
+            host_request = gethost() + 'data/opencv/detectface'
+            ajaxRequest("POST", host_request, request_data, onDetectSuccess, genericFailCB)
+        })
+
+        function onDetectSuccess(res) {
+            document.getElementById("img_result").readAsDataURL = "data:image/png;base64," + res.image_base64
+        }
+    });
+</script>
+{% endblock %}

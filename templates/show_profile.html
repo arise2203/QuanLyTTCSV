@@ -7,6 +7,7 @@
     
     .intro {
         display: inline-block;
+        margin-bottom: 50px;
     }
     
     .fiter-item {
@@ -20,10 +21,10 @@
     }
     
     .ima {
-        width: 100px;
-        height: 100px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
-        background-color: blue;
+        margin-bottom: 50px;
     }
 </style>
 <div class="row">
@@ -31,7 +32,7 @@
     <div class="intro">
         <h3 style="font-size: 20px;text-align: center;text-transform: uppercase;color: #273c75;">{{profiles.full_name}}</h3>
         <div class="ima">
-            <img src="{{profiles.course}}" alt="">
+            <img style="width: 100px;height: 100px;" src="{{profiles.course.url}}" alt="">
         </div>
     </div>
     <table class="table table-striped">

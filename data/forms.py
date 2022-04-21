@@ -11,7 +11,7 @@ from .models import MyUser, Profile,Images
 class ProfileForm(ModelForm):
     class Meta:
         model= Profile
-        fields = ('student_id','full_name','school_id','date_of_birth','email','mobile_number','majors','address','job_present','status')
+        fields = ('student_id','full_name','school_id','date_of_birth','email','mobile_number','majors','address','job_present','status','course')
        
 
         widgets={
@@ -25,6 +25,8 @@ class ProfileForm(ModelForm):
             'address':forms.TextInput(attrs={'class':'form-control'}),
             'job_present':forms.TextInput(attrs={'class':'form-control'}),
             'status':forms.Select(attrs={'class':'form-select'}),
+            'course':forms.FileInput(attrs={'capture': 'camera'})
+            
             
 
         }
@@ -43,7 +45,11 @@ class UserForm(ModelForm):
 
 
 
-class ImageForm(ModelForm):
+class ImageForm(forms.ModelForm):
     class Meta:
         model = Images
         fields = "__all__"
+        # widgets={
+        #     ClearableFileInput(attrs={'type': 'camera'})
+        # }
+

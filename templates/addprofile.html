@@ -1,4 +1,4 @@
-{% extends './mana.html'%} {%block title%}Them profile{%endblock%}{%block mana_list%}
+{% extends './mana.html'%} {%block title%}Thêm profile{%endblock%}{%block mana_list%}
 <style>
     .forms-addprofile {
         width: 90vh;
@@ -38,7 +38,6 @@
 <h3 class="h3-addprofile">Cá nhân</h3>
 <div class="row">
     <div class="col-sm-3"></div>
-
     <div class="col-sm-9">
 
         {% if submitted %}
@@ -51,5 +50,6 @@
             <input type="submit" value="Cập Nhập" class="btn-update">
         </form>
     </div>
+    {%endif%}
 </div>
-{%endif%} {%endblock%}
+{%endblock%}

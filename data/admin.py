@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import School, Profile,MyUser
+from .models import School, Profile,MyUser,Images
 # Register your models here.
 
 
@@ -21,6 +21,12 @@ class MyUserAdmin(admin.ModelAdmin):
     list_filter=['last_name']
 
 
+class ImagesAdmin(admin.ModelAdmin):
+    list_display=['images_re','last_face']
+    
+
+
 admin.site.register(MyUser,MyUserAdmin)
 admin.site.register(School,SchoolAdmin)
 admin.site.register(Profile,ProfileAdmin)
+admin.site.register(Images,ImagesAdmin)

@@ -3,6 +3,7 @@
     a:hover {
         background-color: azure;
         color: brown;
+        overflow: hidden;
     }
     
     .car {
@@ -48,6 +49,7 @@
     
     li:hover .fiter-item {
         border-radius: 10px;
+        overflow: hidden;
     }
     
     th {
@@ -104,13 +106,13 @@
 <div class="row">
     <div class="col-sm-3">
         <ul style="display: flex; flex-wrap: wrap;list-style: none;">
-            <li style=""><a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'listprofile'%}">bạn đã dăng kí</a></li>
+            <li style=""><a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'listprofile'%}">bạn đã đăng kí</a></li>
             <li style="">
                 <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'list_school'%}">Trường</a></li>
             <li style="">
                 <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'account'%}">Tài khoản</a></li>
             <li style="">
-                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="#">Nhận diện</a></li>
+                <a class="btn" style="color: black; border: 1px solid black;width: 200px;border-radius: 5px;padding: 5px;margin-top: 20px;background-color: antiquewhite;" href="{%url 'upface'%}">Nhận diện</a></li>
         </ul>
     </div>
     <div class="col-sm-9">
@@ -143,11 +145,11 @@
                 <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'filternotGra'%}" class="btn accordion-body fiter-item">Chưa tốt nghiệp</a></li>
                 <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'addprofile'%}" class="btn accordion-body fiter-item">Thêm profile</a></li>
                 <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'addUser'%}" class="btn accordion-body fiter-item">Thêm tài khoản</a></li>
-                <li style="background-color: #4a69bd;overflow: hidden;"><a href="{% url 'identify'%}" class="btn accordion-body fiter-item">Nhận diện ảnh</a></li>
 
             </ul>
 
         </div>
+
 
     </div>
 

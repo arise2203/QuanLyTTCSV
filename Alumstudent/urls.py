@@ -27,6 +27,9 @@ urlpatterns = [
     path('profile/',views.index,name='profile'),
     path('search/',views.search_list,name='search'),
     path('list_school/',views.list_school,name='list_school'),
+    path('facecam_feed', views.facecam_feed, name='facecam_feed'),
+    path('train_model', views.Train, name='train_model'),
+    path('detectImage', views.detectImage, name='detectImage'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

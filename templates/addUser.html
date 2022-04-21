@@ -1,4 +1,4 @@
-{% extends './mana.html'%} {%block title%}Them profile{%endblock%}{%block mana_list%}
+{% extends './mana.html'%} {%block title%}Thêm User{%endblock%}{%block mana_list%}
 <style>
     .forms-addprofile {
         width: 90vh;
@@ -47,6 +47,7 @@
             {%csrf_token%} {{form.as_table}}
             <input style="margin-top:20px;" type="submit" value="Cập nhập" class="btn-update">
         </form>
+        {%endif%}
     </div>
 </div>
-{%endif%} {%endblock%}
+{%endblock%}

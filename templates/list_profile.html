@@ -27,8 +27,6 @@
     {% for item in profile %}
     <tbody>
         <tr>
-
-
             <th class="th-text"><img src="{{item.course.url}}" alt="" style="width: 80px;height: 80px;"></th>
             <!-- <th class="th-text">{{item.course}}</th> -->
             <th class="th-text">{{item.full_name}}</th>
@@ -37,7 +35,7 @@
             <th class="th-text">{{item.school_id.name_school}}</th>
             <th class="th-text">{{item.status}}</th>
             <th class="th-text">
-                <a href="{% url 'show' item.id%}" class="btn-edit" type="submit">Chi Tiết</a>
+                <a href="{% url 'show' item.id%}" class="btn-show" type="submit">Chi Tiết</a>
                 <a href="{% url 'update' item.id%}" class="btn-edit" type="submit">Sửa</a>
                 <a href="{% url 'delete' item.id%}" class="btn-delete" type="submit">Xóa</a>
             </th>

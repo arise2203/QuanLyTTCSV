@@ -1,6 +1,9 @@
 from distutils.command.upload import upload
+from email.policy import default
 from unicodedata import name
 from django.db import models
+
+from django.db import migrations, models
 
 
 
@@ -23,20 +26,20 @@ class Profile(models.Model):
         ("Chua tot nghiep","Chua tot nghiep"),
     )
     student_id = models.CharField('MSSV',default="",max_length=11,null=True)
-    full_name= models.CharField('Hoten',max_length=50)
+    full_name= models.CharField('Ho ten',max_length=50)
     email = models.EmailField('Email',max_length = 254)
-    date_of_birth= models.DateField('NgaySinh')
+    date_of_birth= models.DateField('Ngay Sinh',blank=True,null=True)
     school_id =models.ForeignKey(School,on_delete=models.SET_NULL,null=True)
-    majors = models.CharField('Nghanh',max_length=254)
-    address =models.CharField('ĐịaChi',max_length=254)
+    majors = models.CharField('Nganh',max_length=254)
+    address =models.CharField('Địa Chi',max_length=254)
     mobile_number = models.IntegerField('Số điện thoại')
-    job_present = models.CharField('Côngviệc',max_length=254)
-    company = models.CharField('Côngty',max_length=100)
-    job_location = models.CharField(max_length=245)
+    job_present = models.CharField('Công việc',max_length=254)
+    company = models.CharField('Công ty',max_length=100)
+    # present = models.BooleanField(default=False,blank=True,null=True)
+    job_location = models.BooleanField(default=False,blank=True,null=True)
     course= models.ImageField('Ảnh đại diện',upload_to='./avatar',default=None)
-    status = models.CharField('TrangThai',max_length=200,null=True,choices=tag)
-    # avatar = models.ImageField('Ảnh đại diện',upload_to='./avatar',default=None)
-
+    status = models.CharField('Trang Thai',max_length=200,null=True,choices=tag)
+    
     def __str__(self):
         return self.student_id
 
@@ -52,8 +55,13 @@ class MyUser(models.Model):
 
 
 class Images(models.Model):
-    images=models.ImageField(upload_to='face',default=None)
+    images_re = models.ImageField(upload_to='./face',default=None)
+    last_face = models.CharField(max_length=200,default=None)
 
+    def __str__(self):
+        return self.last_face
+
+   
 
 
 
